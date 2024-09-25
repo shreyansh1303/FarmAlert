@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmAlert</title>
+    <link rel="stylesheet" href="style_1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navigaton_container">
+        <div class="title">
+            <b>F</b>arm<b>A</b>lert
+        </div>
+        <div class="other_items">
+            <ul>
+                <li><a onclick="homescroll()"><b>H</b>ome</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home_section">
+            <div class="main_container">
+                <div class="upper_container" id="potato" onclick="potatoscroll()">
+                    <b>P</b>otato <b>P</b>lant
+                </div>
+                <div class="lower_container" id="pepper" onclick="pepperscroll()">
+                    <b>P</b>epper <b>P</b>lant
+                </div>
+            </div>
+        </section>
+
+        <section id="potato_section">
+            <div class="potato_container">
+                <label for="input_field" id="drop_area">
+                    <input type="file" accept="image/*" id="input_field" hidden>
+                    <div id="img_view">
+                        <img src="Drop_icon.png" id="uploaded_image">
+                        <p>Drag and Drop or Click here <br> to upload image</p>
+                        <span>upload any image</span>
+                    </div>
+                </label>
+            </div>
+            <div class="result_container" id="potato_result">
+                <h2>Prediction Result</h2>
+                <p id="potato_type"></p>
+                <p id="potato_result_text"></p>
+                <p id="potato_accuracy"></p>
+            </div>
+        </section>
+
+        <section id="pepper_section">
+            <div class="pepper_container">
+                <label for="input_field_2" id="drop_area_2">
+                    <input type="file" accept="image/*" id="input_field_2" hidden>
+                    <div id="img_view_2">
+                        <img src="Drop_icon.png" id="uploaded_image_2">
+                        <p>Drag and Drop or Click here <br> to upload image</p>
+                        <span>upload any image</span>
+                    </div>
+                </label>
+            </div>
+            <div class="result_container" id="pepper_result">
+                <h2>Prediction Result</h2>
+                <p id="pepper_type"></p>
+                <p id="pepper_result_text"></p>
+                <p id="pepper_accuracy"></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 FarmAlert. All rights reserved.</p>
+    </footer>
+
+    <script src="script_1.js"></script>
+</body>
+
+</html>
