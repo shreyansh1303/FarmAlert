@@ -1,5 +1,3 @@
-# FarmAlert
-
 
 <h1>FarmAlert</h1>
 
