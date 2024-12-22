@@ -4,3 +4,4 @@ numpy
 os
 logging
 pillow
+multipart

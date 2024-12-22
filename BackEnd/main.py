@@ -5,17 +5,22 @@ from PIL import Image
 import tensorflow as tf
 from fastapi.middleware.cors import CORSMiddleware
 
+import os
 
-app = FastAPI()
+app1 = FastAPI()
+
 
 
 
 origins = [
     "http://127.0.0.1:3000",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://127.0.0.1:5500",
+    "http://localhost:5500"
+
 ]
 
-app.add_middleware(
+app1.add_middleware(
     CORSMiddleware,
     allow_origins=origins,  # Allows specific origins
     allow_credentials=True,
@@ -34,9 +39,9 @@ CLASSES_PEPPER = ["Bacterial Spot","Healthy"]
 
 
 
-@app.get("/")
+@app1.get("/")
 async def hello():
-    return {"hello":"Hello PraveenKumar"}
+    return {"hello":"Hello Shreyansh"}
 
 
 
@@ -45,7 +50,7 @@ def read_image(data)-> np.ndarray:
     return image
 
 
-@app.post("/prediction")
+@app1.post("/prediction")
 async def predict(file:UploadFile=File(...),plant_type:str = Form(...)):
     try:
         bytes = await file.read()
@@ -64,7 +69,7 @@ async def predict(file:UploadFile=File(...),plant_type:str = Form(...)):
             result = CLASSES_PEPPER[confidence]
             result_list = ["Pepper Plant",str(result),str(predictions[0][confidence])]
 
-
+        # print(result_list)
         return {"Type":result_list[0],
                 "Result":result_list[1],
                 "Accuracy":result_list[2]}
